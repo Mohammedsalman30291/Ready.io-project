@@ -1,0 +1,279 @@
+/* 
+  Basic reset so browsers don’t add random spacing.
+  This keeps layouts predictable.
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  Global body styles.
+  Neutral background, readable font, smooth theme transitions.
+*/
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f7f7f7;
+  color: #222;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 
+  Remove default underline and color changes on links.
+*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 
+  Dark mode styles.
+  Activated by toggling the `dark` class on body.
+*/
+body.dark {
+  background-color: #0f0f0f;
+  color: #f5f5f5;
+}
+
+/* Cards look slightly darker in dark mode */
+body.dark .card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+/* Navbar blends into dark background */
+body.dark .navbar {
+  background: #121212;
+  border-bottom: 1px solid #333;
+}
+
+/* Inputs and dropdowns shouldn’t be blinding in dark mode */
+body.dark input,
+body.dark select {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #333;
+}
+
+/* 
+  Top navigation bar.
+  Sticky so it stays visible while scrolling.
+*/
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* App title in navbar */
+.navbar h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Navigation links + dark mode toggle */
+.navbar div {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Default nav link style */
+.navbar a {
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Highlight active route */
+.navbar a.active {
+  opacity: 1;
+  border-bottom: 2px solid #000;
+}
+
+/* Dark mode toggle button */
+.navbar button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+}
+
+/* 
+  Shared page container.
+  Keeps content centered and readable.
+*/
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Main heading styles (Home / Detail pages) */
+.page h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph text */
+.page p {
+  max-width: 600px;
+  opacity: 0.85;
+}
+
+/* 
+  Reusable button style.
+  Used for navigation and actions.
+*/
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.65rem 1.2rem;
+  background: #111;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+/* Small hover feedback */
+.btn:hover {
+  transform: translateY(-2px);
+  background: #000;
+}
+
+/* 
+  Search input and category filter.
+  Simple, clean, and readable.
+*/
+.page input,
+.page select {
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Prevent search bar from being too wide on small screens */
+.page input {
+  width: 260px;
+  max-width: 100%;
+}
+
+/* 
+  Product listing grid.
+  Automatically adjusts columns based on screen size.
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 
+  Product card.
+  Clean, simple, with subtle hover animation.
+*/
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Lift effect on hover */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Product image inside card */
+.card img {
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* Product title */
+.card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Price aligned to bottom */
+.card p {
+  font-weight: 600;
+  margin-top: auto;
+}
+
+/* 
+  Product detail page image.
+  Centered and scaled nicely.
+*/
+.detail-img {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* Detail page headings */
+.page h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.page h3 {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+/* 
+  Loader and error messages.
+  Simple and noticeable without being annoying.
+*/
+.center {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.error {
+  color: #d11a2a;
+  background: rgba(209, 26, 42, 0.1);
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 2rem;
+  text-align: center;
+}
+
+/* 
+  Mobile adjustments.
+  Reduce padding and scale text slightly.
+*/
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .page h1 {
+    font-size: 1.8rem;
+  }
+
+  .detail-img {
+    max-width: 100%;
+  }
+}
