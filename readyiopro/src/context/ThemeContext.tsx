@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react"
 import type { ReactNode } from "react"
 
 type ThemeContextType = {
+  dark: boolean
   toggleTheme: () => void
 }
 
@@ -16,7 +17,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <ThemeContext.Provider value={{ toggleTheme }}>
+    <ThemeContext.Provider value={{ dark, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )
